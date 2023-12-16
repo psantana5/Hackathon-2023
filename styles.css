@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #33DDFF;
-    filter: drop-shadow(5px 5px 2px rgb(56, 5, 5));
+        filter: drop-shadow(5px 5px 2px rgb(56, 5, 5));
 
 }
 
@@ -51,15 +51,22 @@ body {
 
 .send-button {
     margin-left: 10px;
-    padding: 6px 12px;
+    padding: 7px 13px;
     background-color: #ff4b5a;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+    border-image: url('pirulis-border.png') 1 stretch;
 }
 
-.send-button:hover {
-    background-color: #ff3d4a;
+.send-button:active {
+    transform: scale(0.95);
+}
+
+.send-button {
+    border: 3px solid #ff5f70;
 }
