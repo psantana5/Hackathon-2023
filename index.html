@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        .chatbox {
+            width: 500px;
+            height: 400px;
+            border: 1px solid black;
+            overflow-y: scroll;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .user-message {
+            background-color: lightblue;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: lightgray;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chat-container" id="chat-container">
+            <!--<div class="message bot-message">Hello, how can I help you?</div>-->
+        </div>
+    </div>
+    <br>
+    <input type="text" id="user-input" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        let messages = [];
+
+        function addMessage(message, type) {
+            const newMessage = document.createElement('div');
+            newMessage.classList.add('message', type);
+            newMessage.textContent = message;
+            document.getElementById('chat-container').appendChild(newMessage);
+            messages.push(newMessage);
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value;
+            if (message.trim() === '') {
+                return;
+            }
+            addMessage(message, 'user-message');
+            userInput.value = '';
+
+            // Uncomment below lines and add your bot's API endpoint
+            // const url = 'your_bot_api_endpoint';
+            // fetch(url, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({ message: message })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.message) {
+            //         addMessage(data.message, 'bot-message');
+            //     }
+            // })
+            // .catch(error => {
+            //     console.error('Error:', error);
+            // });
+        }
+    </script>
+</body>
+</html>
