@@ -10,7 +10,7 @@ document.getElementById('send-button').addEventListener('click', () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer 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'
+                    'Authorization': 'Bearer #Not leaking any API keys today ;) '
                 },
                 body: JSON.stringify({
                     prompt: userMessage,
